@@ -1,6 +1,7 @@
 import { AppDataSource } from "./data-source";
 import { User } from "./entity/User";
 import { Order } from "./entity/Order";
+
 //查询至少买过一个商品的用户
 AppDataSource.initialize()
   .then(async () => {
