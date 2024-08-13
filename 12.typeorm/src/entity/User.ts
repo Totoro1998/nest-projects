@@ -19,6 +19,7 @@ export class User {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+  // 第二个参数，是标识对方是怎么关联自己的
   @OneToMany(() => Order, (order) => order.user)
   orders: Order[];
 }

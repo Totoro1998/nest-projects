@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { User } from "./entity/User";
 import { Order } from "./entity/Order";
+
 export const AppDataSource = new DataSource({
   type: "mysql", //数据库的类型是mysql
   host: "localhost",

@@ -4,31 +4,31 @@ import { Order } from "./entity/Order";
 
 AppDataSource.initialize()
   .then(async () => {
-    const user1 = new User();
-    user1.firstName = "zhang";
-    user1.lastName = "san";
-    user1.age = 18;
-    user1.email = "zhang@qq.com";
-    user1.isActive = true;
-    await AppDataSource.manager.save(user1);
+    // const user1 = new User();
+    // user1.firstName = "zhang";
+    // user1.lastName = "san";
+    // user1.age = 18;
+    // user1.email = "zhang@qq.com";
+    // user1.isActive = true;
+    // await AppDataSource.manager.save(user1);
 
-    const order1 = new Order();
-    order1.product = "Product1";
-    order1.amount = 1;
-    order1.user = user1;
-    await AppDataSource.manager.save(order1);
+    // const order1 = new Order();
+    // order1.product = "Product1";
+    // order1.amount = 1;
+    // order1.user = user1;
+    // await AppDataSource.manager.save(order1);
 
-    const order2 = new Order();
-    order2.product = "Product1";
-    order2.amount = 2;
-    order2.user = user1;
-    await AppDataSource.manager.save(order2);
+    // const order2 = new Order();
+    // order2.product = "Product2";
+    // order2.amount = 2;
+    // order2.user = user1;
+    // await AppDataSource.manager.save(order2);
 
-    const order3 = new Order();
-    order3.product = "Product2";
-    order3.amount = 3;
-    order3.user = user1;
-    await AppDataSource.manager.save(order3);
+    // const order3 = new Order();
+    // order3.product = "Product3";
+    // order3.amount = 3;
+    // order3.user = user1;
+    // await AppDataSource.manager.save(order3);
 
     const queryBuilder = AppDataSource.manager.createQueryBuilder(User, "user");
     const query = queryBuilder
@@ -42,7 +42,7 @@ AppDataSource.initialize()
       .orderBy("totalAmount", "DESC"); //按订单的商品总数量进行倒序排列
     const result = await query.getRawMany();
     console.log(result);
-    // zhang  san  3
+    // [ { user_firstName: 'zhang', user_lastName: 'san', totalAmount: '1' } ]
   })
   .finally(() => process.exit(9));
 /**

@@ -12,6 +12,7 @@ export class Order {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+  // 第二个参数标识对方怎么关联自己的
   @ManyToOne(() => User, (user) => user.orders)
   user: User;
 }
